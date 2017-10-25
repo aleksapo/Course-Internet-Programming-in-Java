@@ -45,6 +45,23 @@
                 <f:facet name="header">Adresa</f:facet>
                 <h:outputText value="#{student.address}" />
             </h:column>
+            
+                  <h:column>
+                <f:facet name="header">Godina studija</f:facet>
+                <h:outputText value="#{student.godinaStudija}" />
+            </h:column>
+                             <h:column>
+                <f:facet name="header">Na budzetu</f:facet>
+                <h:outputText value="#{student.budzet}" />
+            </h:column>
+            
+            
+                                    <h:column>
+                <f:facet name="header">Stanje na racunu</f:facet>
+                <h:outputText value="#{student.stanjeRacuna}" />
+            </h:column>
+            
+            
             <h:column>
                 <f:facet name="header">Ažuriranje</f:facet>
                 <h:commandButton action="#{studentBean.editStudentRecord(student.id)}" value="Ažuriraj" class="btn btn-primary" />
@@ -53,6 +70,13 @@
                 <f:facet name="header">Brisanje</f:facet>
                 <h:commandButton action="#{studentBean.deleteStudentRecord(student.id)}" value="Obriši" class="btn btn-danger" />
             </h:column>
+            
+                      <h:column>
+                <f:facet name="header">Prijavi ispit</f:facet>
+                <h:commandButton action="#{studentBean.prijaviIspit(student.id)}" value="Prijavi ispit" class="btn btn-warning" />
+            </h:column>
+            
+            
         </h:dataTable>
         <center>
             <h:commandButton action="createStudent.xhtml?faces-redirect=true" value="Kreiranje novog korisnika" class="btn btn-success btnSpace" />

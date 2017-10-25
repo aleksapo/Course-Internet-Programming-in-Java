@@ -47,6 +47,13 @@ public class DatabaseOperation {
 				stuObj.setPassword(resultSetObj.getString("student_password"));  
 				stuObj.setGender(resultSetObj.getString("student_gender"));  
 				stuObj.setAddress(resultSetObj.getString("student_address"));  
+				
+				stuObj.setGodinaStudija(resultSetObj.getString("student_godinastudija"));  
+				stuObj.setBudzet(resultSetObj.getString("student_budzet"));  
+				stuObj.setStanjeRacuna(resultSetObj.getString("student_stanjeracuna"));  
+
+				
+				
 				studentsList.add(stuObj);  
 			}   
 			System.out.println("Total Records Fetched: " + studentsList.size());
@@ -62,12 +69,19 @@ public class DatabaseOperation {
 		int saveResult = 0;
 		String navigationResult = "";
 		try {      
-			pstmt = getConnection().prepareStatement("insert into student_record (student_name, student_email, student_password, student_gender, student_address) values (?, ?, ?, ?, ?)");			
+			pstmt = getConnection().prepareStatement("insert into student_record (student_name, student_email, student_password, student_gender, student_address,student_godinastudija,student_budzet,student_stanjeracuna) values (?, ?, ?, ?, ?, ?, ?, ?)");			
 			pstmt.setString(1, newStudentObj.getName());
 			pstmt.setString(2, newStudentObj.getEmail());
 			pstmt.setString(3, newStudentObj.getPassword());
 			pstmt.setString(4, newStudentObj.getGender());
 			pstmt.setString(5, newStudentObj.getAddress());
+			
+			pstmt.setString(6, newStudentObj.getGodinaStudija());
+			pstmt.setString(7, newStudentObj.getBudzet());
+			pstmt.setString(8, newStudentObj.getStanjeRacuna());
+			
+			
+			
 			saveResult = pstmt.executeUpdate();
 			connObj.close();
 		} catch(Exception sqlException) {
@@ -101,6 +115,19 @@ public class DatabaseOperation {
 				editRecord.setGender(resultSetObj.getString("student_gender"));
 				editRecord.setAddress(resultSetObj.getString("student_address"));
 				editRecord.setPassword(resultSetObj.getString("student_password")); 
+				
+		
+				
+				editRecord.setGodinaStudija(resultSetObj.getString("student_godinastudija"));  
+				editRecord.setBudzet(resultSetObj.getString("student_budzet"));  
+				editRecord.setStanjeRacuna(resultSetObj.getString("student_stanjeracuna"));
+				
+		
+				
+				
+				
+				
+				
 			}
 			sessionMapObj.put("editRecordObj", editRecord);
 			connObj.close();
@@ -113,13 +140,23 @@ public class DatabaseOperation {
 
 	public static String updateStudentDetailsInDB(StudentBean updateStudentObj) {
 		try {
-			pstmt = getConnection().prepareStatement("update student_record set student_name=?, student_email=?, student_password=?, student_gender=?, student_address=? where student_id=?");    
+			pstmt = getConnection().prepareStatement("update student_record set student_name=?, student_email=?, student_password=?, student_gender=?, student_address=? , student_godinastudija=?, student_budzet=?, student_stanjeracuna=? where student_id=?");    
 			pstmt.setString(1,updateStudentObj.getName());  
 			pstmt.setString(2,updateStudentObj.getEmail());  
 			pstmt.setString(3,updateStudentObj.getPassword());  
 			pstmt.setString(4,updateStudentObj.getGender());  
 			pstmt.setString(5,updateStudentObj.getAddress());  
-			pstmt.setInt(6,updateStudentObj.getId());  
+	 
+			
+			pstmt.setString(6,updateStudentObj.getGodinaStudija());  
+			pstmt.setString(7,updateStudentObj.getBudzet());  
+			pstmt.setString(8,updateStudentObj.getStanjeRacuna());  
+			pstmt.setInt(9,updateStudentObj.getId()); 			
+	
+			
+			
+			
+			
 			pstmt.executeUpdate();
 			connObj.close();			
 		} catch(Exception sqlException) {
@@ -129,6 +166,27 @@ public class DatabaseOperation {
 	}
 
 
+
+	
+	
+	
+	
+	public static String prijaviIspit(int studentId){
+		System.out.println("prijaviIspit() : Student Id: " + studentId);
+		try {
+			pstmt = getConnection().prepareStatement("update student_record set  student_stanjeracuna=student_stanjeracuna-10  where student_id = "+studentId);  
+			pstmt.executeUpdate();  
+			connObj.close();
+		} catch(Exception sqlException){
+			sqlException.printStackTrace();
+		}
+		return "/studentsList.xhtml?faces-redirect=true";
+	}
+	
+	
+	
+	
+	
 	public static String deleteStudentRecordInDB(int studentId){
 		System.out.println("deleteStudentRecordInDB() : Student Id: " + studentId);
 		try {

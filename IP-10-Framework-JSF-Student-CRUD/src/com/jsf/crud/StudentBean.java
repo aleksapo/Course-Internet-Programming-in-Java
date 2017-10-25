@@ -18,6 +18,17 @@ public class StudentBean {
 	private String gender;  
 	private String address;
 
+	private String godinaStudija;  
+	private String budzet;  
+	private String stanjeRacuna;
+
+	
+	
+	
+	
+	
+	
+	
 	public ArrayList<StudentBean>studentsListFromDB;
 
 	public int getId() {
@@ -69,6 +80,54 @@ public class StudentBean {
 	}  
 	
 	
+	
+	
+	public String getGodinaStudija() {
+		return godinaStudija;
+	}
+
+	public void setGodinaStudija(String godinaStudija) {
+		this.godinaStudija = godinaStudija;
+	}
+
+	
+	
+	
+	public String getBudzet() {
+		return budzet;
+	}
+
+	public void setBudzet(String budzet) {
+		this.budzet = budzet;
+	}  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public String getStanjeRacuna() {
+		return stanjeRacuna;
+	}
+
+	public void setStanjeRacuna(String stanjeRacuna) {
+		this.stanjeRacuna = stanjeRacuna;
+	}  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@PostConstruct
 	public void init() {
 		studentsListFromDB = DatabaseOperation.getStudentsListFromDB();
@@ -98,4 +157,19 @@ public class StudentBean {
 	public String deleteStudentRecord(int studentId) {
 		return DatabaseOperation.deleteStudentRecordInDB(studentId);
 	}
+	
+	public String prijaviIspit(int studentId) {
+		return DatabaseOperation.prijaviIspit(studentId);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

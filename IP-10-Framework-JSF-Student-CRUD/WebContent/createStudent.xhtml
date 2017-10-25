@@ -58,11 +58,59 @@
         <div class="form-group">
             <h:outputLabel for="address" class="control-label col-sm-4">Adresa:</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputTextarea id="address-id" value="#{studentBean.address}" cols="50" rows="5" class="form-control" validatorMessage="Adresa je obavezna.">
+                <h:inputText id="address-id" value="#{studentBean.address}" cols="50" rows="5" class="form-control" validatorMessage="Adresa je obavezna.">
                     <f:validateRequired/>
-                </h:inputTextarea>
+                </h:inputText>
             </div>
         </div>
+        
+        
+                    <div class="form-group">
+            <h:outputLabel for="godinaStudija" class="control-label col-sm-4">Godina studija:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="godinaStudija-id" value="#{studentBean.godinaStudija}" cols="50" rows="5" class="form-control" validatorMessage="Adresa je obavezna.">
+                    <f:validateRequired/>
+                </h:inputText>
+            </div>
+        </div>
+        
+        
+            
+            
+        
+        
+        
+              <div class="form-group">
+            <h:outputLabel for="budzet" class="control-label col-sm-4">Budzet:</h:outputLabel>
+            <div class="col-sm-4">
+     <h:selectOneRadio id="budzet-id" value="#{studentBean.budzet}" validatorMessage="Budzet je obavezan.">
+                    <f:selectItem itemValue="DA" itemLabel="DA" /><f:selectItem itemValue="NE" itemLabel="NE" />
+                    <f:validateRequired/>
+                </h:selectOneRadio>
+            </div>
+        </div>
+        
+        
+              <div class="form-group">
+            <h:outputLabel for="stanjeRacuna" class="control-label col-sm-4">Stanje racuna:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="stanjeRacuna-id" value="#{studentBean.stanjeRacuna}" class="form-control" >
+                    
+                </h:inputText>
+            </div>
+        </div>
+        
+            
+ 
+                      
+               
+        
+        
+        
+        
+        
+        
+        
         <div class="form-group">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">

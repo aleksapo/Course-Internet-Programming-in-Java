@@ -52,6 +52,51 @@
                     <h:inputTextarea value="#{editRecordObj.address}" cols="50" rows="5" class="form-control"/>
                 </div>
             </div>
+            
+            
+            
+                      <div class="form-group">
+                <h:outputLabel for="godinaStudija" class="control-label col-sm-2">Godina studija:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputTextarea value="#{editRecordObj.godinaStudija}" cols="50" rows="5" class="form-control"/>
+                </div>
+            </div>
+            
+            
+                  
+                   <div class="form-group">
+                <h:outputLabel for="budzet" class="control-label col-sm-2">Budzet:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:selectOneRadio value="#{editRecordObj.budzet}">
+                        <f:selectItem itemValue="DA" itemLabel="DA" />
+                        <f:selectItem itemValue="NE" itemLabel="NE" />
+                    </h:selectOneRadio>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+                                       <div class="form-group">
+                <h:outputLabel for="stanjeRacuna" class="control-label col-sm-2">Na računu:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText value="#{editRecordObj.stanjeRacuna}"  class="form-control"/>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
