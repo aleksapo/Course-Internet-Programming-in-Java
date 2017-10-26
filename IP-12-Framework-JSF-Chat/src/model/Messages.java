@@ -45,7 +45,7 @@ public class Messages {
 		messages.add(0, currentMessage);
 		setPreviousMessage(currentMessage);
 		currentMessage = new Message();
-		return "index.xhtml";
+		return "chat.xhtml";
 	}
 	
 	public String cancelMessage(){
