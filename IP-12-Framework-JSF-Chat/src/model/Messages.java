@@ -46,7 +46,20 @@ public class Messages {
 		setPreviousMessage(currentMessage);
 		currentMessage = new Message();
 		return "chat.xhtml";
+		
+		
 	}
+	
+	
+	public String removeMessage(int id){
+		//currentMessage = new Message();
+	 	messages.remove(id);
+		//setPreviousMessage(currentMessage);
+		//currentMessage = new Message();
+		return "chat.xhtml";
+	}
+	
+	
 	
 	public String cancelMessage(){
 		currentMessage = new Message();
